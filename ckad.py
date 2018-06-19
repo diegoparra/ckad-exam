@@ -55,7 +55,13 @@ basic_conf = [{
     'answer': 'sudo -i',
     'obs': '',
     'link': '',
-    }
+    },
+    {
+    'question': 'Exercise: \n Create a pod named nginx with a image nginx with 4 replicas, limit cpu to 300m and memory to 512Mi, finally expose port 443 \n',
+    'answer': "kubectl run nginx --image=nginx --replicas=4 --limits='cpu=300m,memory=512Mi' --expose --port 443 --dry-run -o yaml > file.yml \n",
+    'obs': ' \n',
+    'link': ' ',
+    },
 ]    
 
 core_concepts = [{
@@ -129,30 +135,156 @@ multi_container = [{
     },
     {
     'question': 'Explain ambassor: \n',
-    'answer': 'ambassor is',
-    'obs': '',
+    'answer': 'proxy',
+    'obs': 'The ambassador pattern is a useful way to connect containers with the outside world. An ambassador container is essentially a proxy that allows other containers to connect to a port on localhost while the ambassador container can proxy these connections to different environments depending on the cluster's needs.',
     'link': '',
     },
     {
     'question': 'Explain adapter:',
-    'answer': 'adapter is',
-    'obs': '',
+    'answer': 'output monitoring',
+    'obs': 'The adapter pattern is used to standardize and normalize application output or monitoring data for aggregation.',
     'link': '',
     },
     {
     'question': 'Explain sidecare:',
-    'answer': 'sidecare is',
-    'obs': '',
+    'answer': 'to help another container',
+    'obs': "The sidecar pattern consists of a main application—i.e. your web application—plus a helper container with a responsibility that is essential to your application, but is not necessarily part of the application itself. The most common sidecar containers are logging utilities, sync services, watchers, and monitoring agents. It wouldn't make sense for a logging container to run while the application itself isn't running, so we create a pod that has the main application and the sidecar container. Another benefit of moving the logging work is that if the logging code is faulty, the fault will be isolated to that container—an exception thrown in the nonessential logging code won't bring down the main application.",
     'link': '',
     }
 ]
 
 
 pod_design = [{      
-    'question': 'Pod Design - 20%\n\n\n How to set a label ?',
-    'answer': 'set label',
+    'question': 'Pod Design - 20%\n\n\n Understand how to use Labels, Selectors, and Annotations.\n\n  How to set label to a pod ?',
+    'answer': 'k label pods name tier=backend',
     'obs': '',
-    'link': '',
+    'link': 'https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/',
+    },
+    {
+    'question': 'How to set label to a pod overwriting any existing value ? \n',
+    'answer': 'k label --overwrite pods name tier=backend  \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to search pods with labels tier=backend ? \n',
+    'answer': 'k get pods -l tier=backend \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to create a label to node? \n',
+    'answer': ' k label nodes nodename datadog=true\n',
+    'obs': ' \n',
+    'link': 'https://kubernetes.io/docs/concepts/configuration/assign-pod-node/ ',
+    },
+    {
+    'question': 'How to show node labels? \n',
+    'answer': 'k get nodes --show-labels \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to assign nodeSelector to a pod ? \n',
+    'answer': 'nodeSelector: \n    datadog:true',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to create one annotation? \n',
+    'answer': " k annotate pods name description='my backend' \n",
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to update one annotation overwriting any existing value ? \n',
+    'answer': 'k annotate --overwrite pods name description="my backend"  \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'Understand Deployments and how to perform rolling updates.  \n\n\n How to create a deployment? \n ',
+    'answer': 'k create -f file.yml --record \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to see all deployments? \n',
+    'answer': ' k get deployments\n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to see the Deployment rollout status? \n',
+    'answer': 'k rollout status deployment/name \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to update a deployment image? \n',
+    'answer': 'k set image deployment/name nginx=nginx:latest \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to check Rollout History of a Deployment ? \n',
+    'answer': 'k rollout history deployment/name  \n',
+    'obs': ' \n',
+    'link': 'https://kubernetes.io/docs/concepts/workloads/controllers/deployment/ ',
+    },
+    {
+    'question': 'How to see the details of each revision? \n',
+    'answer': 'k rollout history deployment/name --revision=2 \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to rollback to a Previous Revision ? \n',
+    'answer': ' k rollout undo deployment/name \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to rollback to a specific revision? \n',
+    'answer': 'k rollback undo deployment/name --revision=2 \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to scale a deployment? \n',
+    'answer': 'k scale deployment name --replicas=2 \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to set horizontal pod autoscaling to a deployment? \n',
+    'answer': 'k autoscale deployment name --min=2 --max=3 --cpu-percent=80 \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'Understand Jobs and CronJobs \n\n\n to create a cron job using kubectl run ?\n',
+    'answer': 'k run name --schedule="*/1 * * * *" --restart=OnFailure --image=busybox -- /bin/sh -c "date; echo k8s" \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'After creating the cron job, how to get the job status? \n',
+    'answer': 'k get cronjob name \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'how to Watch for the job to be created in around one minute? \n',
+    'answer': 'k get jobs --watch \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to delete a cronjob? \n',
+    'answer': 'k delete cronjob name \n',
+    'obs': ' \n',
+    'link': ' ',
     },  
 ]
 
