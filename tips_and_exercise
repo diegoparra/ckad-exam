@@ -1,0 +1,32 @@
+# TIPs
+
+Ever Never write yaml definitions from blank page. Knowing every parameters of 
+
+# kubectl run
+
+command is the key parameter of success for this exam.
+
+
+You can create, expose deployment with 5 replicas with limits at one command. 
+# kubectl run nginx --image=nginx --replicas=5 --limits='cpu=200m,memory=512Mi' --expose --port=80
+
+If you need bare pod use:
+# --restart='Never'
+
+
+If you need cron job use 
+# --schedule='*/10 * * * *' --restart='Never'
+
+If you need more than capability of kubectl run use:
+# --dry-run -oyaml > your_template.yaml
+
+and start to edit.
+
+---------------
+Exercise:
+1. Create a pod named nginx
+2. using a image named nginx
+3. with 4 replicas
+4. limit to 300m cpu
+5. limit to 512Mi memory
+6. expose port 443
