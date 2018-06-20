@@ -55,13 +55,7 @@ basic_conf = [{
     'answer': 'sudo -i',
     'obs': '',
     'link': '',
-    },
-    {
-    'question': 'Exercise: \n Create a pod named nginx with a image nginx with 4 replicas, limit cpu to 300m and memory to 512Mi, finally expose port 443 \n',
-    'answer': "kubectl run nginx --image=nginx --replicas=4 --limits='cpu=300m,memory=512Mi' --expose --port 443 --dry-run -o yaml > file.yml \n",
-    'obs': ' \n',
-    'link': ' ',
-    },
+    }
 ]    
 
 core_concepts = [{
@@ -310,6 +304,54 @@ networking = [{
     'obs': '',
     'link': '',
     },  
+]
+
+exercises = [{
+    'question': 'Exercise: \n Create a pod named nginx with a image nginx with 4 replicas, limit cpu to 300m and memory to 512Mi, finally expose port 443 \n',
+    'answer': "k run nginx --image=nginx --replicas=4 --limits='cpu=300m,memory=512Mi' --expose --port 443 --dry-run -o yaml > file.yml \n",
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to create a DEPLOYMENT using kubectl run ? \n',
+    'answer': 'k run nginx --image=nginx\n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to create a POD using kubectl run ? \n',
+    'answer': 'k run nginx --image=nginx --restart=Never\n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to create a JOB using kubectl run ? \n',
+    'answer': 'k run busybox --image=busybox --restart=OnFailure\n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to create a CRONJOB using kubectl run ? \n',
+    'answer': 'run busybox --image=busybox --schedule="* * * * *"  --restart=OnFailure\n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to create configmap using kubectl create? \n',
+    'answer': 'k create configmap name --from-literal=foo=bar \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
+    'question': 'How to create secret using kubectl create and export to yml file? \n',
+    'answer': 'k create secret generic name --from-literal=foo=bar -o yaml --dry-run > mysecret.yml \n',
+    'obs': ' \n',
+    'link': ' ',
+    },
+
+
+
+
 ]
 
 
