@@ -3,55 +3,55 @@
 import os
 
 basic_conf = [{
-    'question': 'Basic configurations\n\n\nHow to create kubectl completion? \n',
+    'question': 'Basic configurations\n\n\nHow to create kubectl completion? \n\n',
     'answer': 'echo "source <(kubectl completion bash)" >> ~/.bashrc',
     'obs': '',
     'link': '',
     },
     {
-    'question': 'How to reload .bashrc ? \n',
+    'question': 'How to reload .bashrc ? \n\n',
     'answer': 'source ~/.bashrc',
     'obs': '',
     'link': '',
     },
     {
-    'question': 'How to create an alias to kubectl ? \n',
+    'question': 'How to create an alias to kubectl ? \n\n',
     'answer': 'alias k=kubectl',
     'obs': '',
     'link': '',
     },
     {
-    'question': 'How to see an specific namespace ? \n',
+    'question': 'How to see an specific namespace ? \n\n',
     'answer': 'k -n namespace',
     'obs': '',
     'link': '',
     },
     {
-    'question': 'How to export a pod config to a yaml file ? \n',
+    'question': 'How to export a pod config to a yaml file ? \n\n',
     'answer': 'k get pod name -o yaml --export > file.yml',
     'obs': '',
     'link': '',
     },
     {
-    'question': 'How to export a deployment config to a yaml file ? \n',
+    'question': 'How to export a deployment config to a yaml file ? \n\n',
     'answer': 'k get deployment name -o yaml --export > file.yml',
     'obs': '',
     'link': '',
     },
     {
-    'question': 'How to force a replace using a file ? \n',
+    'question': 'How to force a replace using a file ? \n\n',
     'answer': 'k replace -f file.yml --force',
     'obs': '',
     'link': '',
     },
     {
-    'question': 'How to set configuration context ? \n',
+    'question': 'How to set configuration context ? \n\n',
     'answer': 'k config use-context name',
     'obs': '',
     'link': '',
     },
     {
-    'question': 'How to get elevated privileges on exam ? \n',
+    'question': 'How to get elevated privileges on exam ? \n\n',
     'answer': 'sudo -i',
     'obs': '',
     'link': '',
@@ -59,43 +59,43 @@ basic_conf = [{
 ]    
 
 core_concepts = [{
-    'question': 'Core Concepts - 13% \n\n\nWhat are the possible values for pod phase ? \n',
+    'question': 'Core Concepts - 13% \n\n\nWhat are the possible values for pod phase ? \n\n',
     'answer': 'pending, running, succeeded, failed, unknown',
     'obs': '',
     'link': '',
     },
     {
-    'question': 'What are the types of API versioning\n',
+    'question': 'What are the types of API versioning\n\n',
     'answer': 'alpha, beta, stable',
     'obs': 'Alpha level:  The version names contain alpha (e.g. v1alpha1).\n Beta level: The version names contain beta (e.g. v2beta3)\n Stable level: The version name is vX where X is an integer.\n ',
     'link': 'https://kubernetes.io/docs/concepts/overview/kubernetes-api/',
     },
     {
-    'question': 'How to see all APIs enabled? \n ',
+    'question': 'How to see all APIs enabled? \n\n ',
     'answer': 'k api-versions',
     'obs': '',
     'link': '',
     },
     {
-    'question': 'How to enable API groups?',
+    'question': 'How to enable API groups? \n\n',
     'answer': '--runtime-config',
     'obs': 'enable: --runtime-config=batch/v2alpha1\n disable: --runtime-config=batch/v1=false\n',
     'link': 'https://kubernetes.io/docs/concepts/overview/kubernetes-api/',
     },
     {
-    'question': 'What are the pods controllers?\n',
+    'question': 'What are the pods controllers? \n\n',
     'answer': 'deployment, statefulset, daemonset',
     'obs': '',
     'link': 'https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/',
     },
     {
-    'question': 'What are the Container probes types ?\n',
+    'question': 'What are the Container probes types ? \n\n',
     'answer': 'ExecAction, TCPSockAction, HTTPGetAction',
     'obs': '\nExecAction: Executes a specified command inside the Container. The diagnostic is considered successful if the command exits with a status code of 0. \n TCPSocketAction: Performs a TCP check against the Container’s IP address on a specified port. The diagnostic is considered successful if the port is open. \n HTTPGetAction: Performs an HTTP Get request against the Container’s IP address on a specified port and path. The diagnostic is considered successful if the response has a status code greater than or equal to 200 and less than 400. \n',
     'link': 'https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/',
     },
     {
-    'question': 'Each probe has one of three results, what is this results? \n',
+    'question': 'Each probe has one of three results, what is this results? \n\n',
     'answer': 'Success, Failure, Unknown',
     'obs': 'Success: The Container passed the diagnostic.\n Failure: The Container failed the diagnostic. \n Unknown: The diagnostic failed, so no action should be taken.\n',
     'link': 'https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/',
@@ -107,14 +107,14 @@ core_concepts = [{
     'link': 'https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/',
     },
     {
-    'question': 'What are the  possible values to a restartPolicy ? \n',
+    'question': 'What are the  possible values to a restartPolicy ? \n\n',
     'answer': 'Always, OnFailure, and Never',
     'obs': '\nThe default value is Always. restartPolicy applies to all Containers in the Pod. restartPolicy only refers to restarts of the Containers by the kubelet on the same node. Exited Containers that are restarted by the kubelet are restarted with an exponential back-off delay (10s, 20s, 40s …) capped at five minutes, and is reset after ten minutes of successful execution. As discussed in the Pods document, once bound to a node, a Pod will never be rebound to another node\n',
     'link': 'https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/',
     },
     {
-    'question': 'Pod lifetime, What are the Three types of controllers available? \n',
-    'answer': 'Job, ReplicationController, ReplicaSet, or Deployment and DaemonSet \n',
+    'question': 'Pod lifetime, What are the Three types of controllers available? \n\n',
+    'answer': 'Job, ReplicationController, ReplicaSet, or Deployment and DaemonSet',
     'obs': 'Use a Job for Pods that are expected to terminate, for example, batch computations. Jobs are appropriate only for Pods with restartPolicy equal to OnFailure or Never.\n Use a ReplicationController, ReplicaSet, or Deployment for Pods that are not expected to terminate, for example, web servers. ReplicationControllers are appropriate only for Pods with a restartPolicy of Always.\n Use a DaemonSet for Pods that need to run one per machine, because they provide a machine-specific system service.\n',
     'link': 'https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/',
     },
@@ -136,7 +136,7 @@ multi_container = [{
     {
     'question': 'Explain adapter:',
     'answer': 'output monitoring',
-    'obs': 'The adapter pattern is used to standardize and normalize application output or monitoring data for aggregation.',
+    'obs': 'The adapter pattern is used to standardize and normalize application output or monitoring data for aggregation',
     'link': '',
     },
     {
@@ -156,127 +156,127 @@ pod_design = [{
     },
     {
     'question': 'How to set label to a pod overwriting any existing value ? \n',
-    'answer': 'k label --overwrite pods name tier=backend  \n',
+    'answer': 'k label --overwrite pods name tier=backend',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'How to search pods with labels tier=backend ? \n',
-    'answer': 'k get pods -l tier=backend \n',
+    'answer': 'k get pods -l tier=backend',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'How to create a label to node? \n',
-    'answer': ' k label nodes nodename datadog=true\n',
+    'answer': ' k label nodes nodename datadog=true',
     'obs': ' \n',
     'link': 'https://kubernetes.io/docs/concepts/configuration/assign-pod-node/ ',
     },
     {
     'question': 'How to show node labels? \n',
-    'answer': 'k get nodes --show-labels \n',
+    'answer': 'k get nodes --show-labels',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'How to assign nodeSelector to a pod ? \n',
-    'answer': 'nodeSelector: \n    datadog:true',
+    'answer': 'nodeSelector: datadog:true',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'How to create one annotation? \n',
-    'answer': " k annotate pods name description='my backend' \n",
+    'answer': " k annotate pods name description='my backend'",
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'How to update one annotation overwriting any existing value ? \n',
-    'answer': 'k annotate --overwrite pods name description="my backend"  \n',
+    'answer': 'k annotate --overwrite pods name description="my backend"',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'Understand Deployments and how to perform rolling updates.  \n\n\n How to create a deployment? \n ',
-    'answer': 'k create -f file.yml --record \n',
+    'answer': 'k create -f file.yml --record',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'How to see all deployments? \n',
-    'answer': ' k get deployments\n',
+    'answer': ' k get deployments',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'How to see the Deployment rollout status? \n',
-    'answer': 'k rollout status deployment/name \n',
+    'answer': 'k rollout status deployment/name',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'How to update a deployment image? \n',
-    'answer': 'k set image deployment/name nginx=nginx:latest \n',
+    'answer': 'k set image deployment/name nginx=nginx:latest',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'How to check Rollout History of a Deployment ? \n',
-    'answer': 'k rollout history deployment/name  \n',
+    'answer': 'k rollout history deployment/name',
     'obs': ' \n',
     'link': 'https://kubernetes.io/docs/concepts/workloads/controllers/deployment/ ',
     },
     {
     'question': 'How to see the details of each revision? \n',
-    'answer': 'k rollout history deployment/name --revision=2 \n',
+    'answer': 'k rollout history deployment/name --revision=2',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'How to rollback to a Previous Revision ? \n',
-    'answer': ' k rollout undo deployment/name \n',
+    'answer': ' k rollout undo deployment/name',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'How to rollback to a specific revision? \n',
-    'answer': 'k rollback undo deployment/name --revision=2 \n',
+    'answer': 'k rollback undo deployment/name --revision=2',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'How to scale a deployment? \n',
-    'answer': 'k scale deployment name --replicas=2 \n',
+    'answer': 'k scale deployment name --replicas=2',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'How to set horizontal pod autoscaling to a deployment? \n',
-    'answer': 'k autoscale deployment name --min=2 --max=3 --cpu-percent=80 \n',
+    'answer': 'k autoscale deployment name --min=2 --max=3 --cpu-percent=80',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'Understand Jobs and CronJobs \n\n\n to create a cron job using kubectl run ?\n',
-    'answer': 'k run name --schedule="*/1 * * * *" --restart=OnFailure --image=busybox -- /bin/sh -c "date; echo k8s" \n',
+    'answer': 'k run name --schedule="*/1 * * * *" --restart=OnFailure --image=busybox -- /bin/sh -c "date; echo k8s"',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'After creating the cron job, how to get the job status? \n',
-    'answer': 'k get cronjob name \n',
+    'answer': 'k get cronjob name',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'how to Watch for the job to be created in around one minute? \n',
-    'answer': 'k get jobs --watch \n',
+    'answer': 'k get jobs --watch',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'How to delete a cronjob? \n',
-    'answer': 'k delete cronjob name \n',
+    'answer': 'k delete cronjob name',
     'obs': ' \n',
     'link': ' ',
     },  
@@ -307,44 +307,44 @@ networking = [{
 ]
 
 exercises = [{
-    'question': 'Exercise: \n Create a pod named nginx with a image nginx with 4 replicas, limit cpu to 300m and memory to 512Mi, finally expose port 443 \n',
-    'answer': "k run nginx --image=nginx --replicas=4 --limits='cpu=300m,memory=512Mi' --expose --port 443 --dry-run -o yaml > file.yml \n",
+    'question': 'Exercise: \n Create a pod named nginx with a image nginx with 4 replicas, limit cpu to 300m and memory to 512Mi, finally expose port 443 and export to a file named file.yml \n\n',
+    'answer': "k run nginx --image=nginx --replicas=4 --limits='cpu=300m,memory=512Mi' --expose --port 443 -o yaml --dry-run > file.yml",
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to create a DEPLOYMENT using kubectl run ? \n',
-    'answer': 'k run nginx --image=nginx\n',
+    'question': 'How to create a DEPLOYMENT using kubectl run ? \n\n',
+    'answer': 'k run nginx --image=nginx',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to create a POD using kubectl run ? \n',
-    'answer': 'k run nginx --image=nginx --restart=Never\n',
+    'question': 'How to create a POD using kubectl run ? \n\n',
+    'answer': 'k run nginx --image=nginx --restart=Never',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to create a JOB using kubectl run ? \n',
-    'answer': 'k run busybox --image=busybox --restart=OnFailure\n',
+    'question': 'How to create a JOB using kubectl run ? \n\n',
+    'answer': 'k run busybox --image=busybox --restart=OnFailure',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to create a CRONJOB using kubectl run ? \n',
-    'answer': 'run busybox --image=busybox --schedule="* * * * *"  --restart=OnFailure\n',
+    'question': 'How to create a CRONJOB using kubectl run ? \n\n',
+    'answer': 'k run busybox --image=busybox --schedule="* * * * *" --restart=OnFailure',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to create configmap using kubectl create? \n',
-    'answer': 'k create configmap name --from-literal=foo=bar \n',
+    'question': 'How to create configmap using kubectl create? \n\n',
+    'answer': 'k create configmap name --from-literal=foo=bar',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to create secret using kubectl create and export to yml file? \n',
-    'answer': 'k create secret generic name --from-literal=foo=bar -o yaml --dry-run > mysecret.yml \n',
+    'question': 'How to create secret using kubectl create and export to yml file? \n\n',
+    'answer': 'k create secret generic name --from-literal=foo=bar -o yaml --dry-run > mysecret.yml',
     'obs': ' \n',
     'link': ' ',
     },
@@ -378,7 +378,10 @@ def exec_choose(question):
             os.system("clear")
 
     media = (cq / len(questions) * 100)
+    os.system("clear")
     print('Your Result: {:.2f}'.format(media))
+    input('go to menu? press <enter>')
+    os.system("clear")
 
 def main():
     while True:
@@ -390,7 +393,7 @@ def main():
                          5) Configuration - 18%\n
                          6) Observability - 18%\n
                          7) Services & Networking - 13%\n
-			 8) Exercises\n
+		         8) Exercises\n
                          9) Exit\n
                        """)
         if choose == "1":
@@ -407,8 +410,8 @@ def main():
             exec_choose(observability)
         elif choose == "7":
             exec_choose(networking)
-	elif choose == "8":
-	    exec_choose(exercises)
+        elif choose == "8":
+            exec_choose(exercises)
         elif choose == "9":
             break
         else:
