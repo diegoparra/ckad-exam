@@ -130,7 +130,7 @@ multi_container = [{
     {
     'question': 'Explain ambassor: \n',
     'answer': 'proxy',
-    'obs': 'The ambassador pattern is a useful way to connect containers with the outside world. An ambassador container is essentially a proxy that allows other containers to connect to a port on localhost while the ambassador container can proxy these connections to different environments depending on the cluster's needs.',
+    'obs': "The ambassador pattern is a useful way to connect containers with the outside world. An ambassador container is essentially a proxy that allows other containers to connect to a port on localhost while the ambassador container can proxy these connections to different environments depending on the cluster's needs.",
     'link': '',
     },
     {
@@ -390,7 +390,8 @@ def main():
                          5) Configuration - 18%\n
                          6) Observability - 18%\n
                          7) Services & Networking - 13%\n
-                         8) Exit\n
+			 8) Exercises\n
+                         9) Exit\n
                        """)
         if choose == "1":
             exec_choose(basic_conf)
@@ -406,7 +407,9 @@ def main():
             exec_choose(observability)
         elif choose == "7":
             exec_choose(networking)
-        elif choose == "8":
+	elif choose == "8":
+	    exec_choose(exercises)
+        elif choose == "9":
             break
         else:
             print("option not found")
