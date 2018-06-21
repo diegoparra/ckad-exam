@@ -313,6 +313,12 @@ exercises = [{
     'link': ' ',
     },
     {
+    'question': ' Create a pod named nginx with a image nginx with 3 replicas, limit cpu to 300m and memory to 512Mi, with service account name teste and finally expose port 443 and export to a file named file.yml \n\n',
+    'answer': "k run nginx --image=nginx --replicas=3 --limits='cpu=300m,memory=512Mi' --expose --port 443 --serviceaccount=teste -o yaml --dry-run > file.yml",
+    'obs': ' \n',
+    'link': ' ',
+    },
+    {
     'question': 'How to create a DEPLOYMENT using kubectl run ? \n\n',
     'answer': 'k run nginx --image=nginx',
     'obs': ' \n',
@@ -325,26 +331,26 @@ exercises = [{
     'link': ' ',
     },
     {
-    'question': 'How to create a JOB using kubectl run ? \n\n',
+    'question': 'How to create a JOB using kubectl run ? name=busybox image=busybox \n\n',
     'answer': 'k run busybox --image=busybox --restart=OnFailure',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to create a CRONJOB using kubectl run ? \n\n',
+    'question': 'How to create a CRONJOB using kubectl run ? name=busybox image=busybox \n\n',
     'answer': 'k run busybox --image=busybox --schedule="* * * * *" --restart=OnFailure',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to create configmap using kubectl create? \n\n',
+    'question': 'How to create configmap using kubectl create? configmap name \n\n',
     'answer': 'k create configmap name --from-literal=foo=bar',
     'obs': ' \n',
     'link': ' ',
     },
     {
     'question': 'How to create secret using kubectl create and export to yml file? \n\n',
-    'answer': 'k create secret generic name --from-literal=foo=bar -o yaml --dry-run > mysecret.yml',
+    'answer': 'k create secret generic name --from-literal=foo=bar -o yaml --dry-run > file.yml',
     'obs': ' \n',
     'link': ' ',
     },
