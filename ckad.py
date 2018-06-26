@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import os
+import os, platform
 
 basic_conf = [{
     'question': 'Basic configurations\n\n\nHow to create kubectl completion? \n\n',
@@ -355,11 +355,13 @@ exercises = [{
     'link': ' ',
     },
 
-
-
-
 ]
 
+def clear_terminal ():
+    if platform.system() == 'Windows':
+        os.system("cls")
+    else:
+        os.system("clear")
 
 
 def exec_choose(question):
@@ -373,7 +375,7 @@ def exec_choose(question):
             print("\n")
             print(q['link'])
             input('go to next? press <enter>\n')
-            os.system("clear")
+            clear_terminal ()
         else:
             print("incorrect \n")
             print("The correct is: {}" .format(q['answer']))
@@ -381,20 +383,20 @@ def exec_choose(question):
             print("\n")
             print(q['link'])
             input('go to next? press <enter>\n')
-            os.system("clear")
+            clear_terminal ()
 
     media = (cq / len(questions) * 100)
-    os.system("clear")
+    clear_terminal ()
     print('Your Result: {:.2f}'.format(media))
     input('go to menu? press <enter>')
-    os.system("clear")
+    clear_terminal ()
 
 def main():
     while True:
         choose = input("""Choose one option to practice: \n
-                         1) Basic configurations\n 
-                         2) Core Concepts 13%\n 
-                         3) Multi-Container Pods - 10%\n 
+                         1) Basic configurations\n
+                         2) Core Concepts 13%\n
+                         3) Multi-Container Pods - 10%\n
                          4) Pod Design - 20%\n
                          5) Configuration - 18%\n
                          6) Observability - 18%\n
@@ -422,7 +424,9 @@ def main():
             break
         else:
             print("option not found")
-            os.system("clear")
+            clear_terminal ()
+
 
 if __name__ == '__main__':
     main()
+
