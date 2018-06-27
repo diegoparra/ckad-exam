@@ -149,133 +149,133 @@ multi_container = [{
 
 
 pod_design = [{      
-    'question': 'Pod Design - 20%\n\n\n Understand how to use Labels, Selectors, and Annotations.\n\n  How to set label to a pod ?',
+    'question': 'Pod Design - 20%\n\n\n Understand how to use Labels, Selectors, and Annotations.\n\n  How to set label to a pod ? \n\n',
     'answer': 'k label pods name tier=backend',
     'obs': '',
     'link': 'https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/',
     },
     {
-    'question': 'How to set label to a pod overwriting any existing value ? \n',
+    'question': 'How to set label to a pod overwriting any existing value ? \n\n',
     'answer': 'k label --overwrite pods name tier=backend',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to search pods with labels tier=backend ? \n',
+    'question': 'How to search pods with labels tier=backend ? \n\n',
     'answer': 'k get pods -l tier=backend',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to create a label to node? \n',
+    'question': 'How to create a label to node? \n\n',
     'answer': ' k label nodes nodename datadog=true',
     'obs': ' \n',
     'link': 'https://kubernetes.io/docs/concepts/configuration/assign-pod-node/ ',
     },
     {
-    'question': 'How to show node labels? \n',
+    'question': 'How to show node labels? \n\n',
     'answer': 'k get nodes --show-labels',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to assign nodeSelector to a pod ? \n',
+    'question': 'How to assign nodeSelector to a pod ? \n\n',
     'answer': 'nodeSelector: datadog:true',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to create one annotation? \n',
+    'question': 'How to create one annotation? \n\n',
     'answer': " k annotate pods name description='my backend'",
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to update one annotation overwriting any existing value ? \n',
-    'answer': 'k annotate --overwrite pods name description="my backend"',
+    'question': 'How to update one annotation overwriting any existing value ? \n\n',
+    'answer': "k annotate --overwrite pods name description='my backend'",
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'Understand Deployments and how to perform rolling updates.  \n\n\n How to create a deployment? \n ',
+    'question': 'Understand Deployments and how to perform rolling updates.  \n\n\n How to create a deployment? \n\n ',
     'answer': 'k create -f file.yml --record',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to see all deployments? \n',
+    'question': 'How to see all deployments? \n\n',
     'answer': ' k get deployments',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to see the Deployment rollout status? \n',
+    'question': 'How to see the Deployment rollout status? \n\n',
     'answer': 'k rollout status deployment/name',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to update a deployment image? \n',
+    'question': 'How to update a deployment image? \n\n',
     'answer': 'k set image deployment/name nginx=nginx:latest',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to check Rollout History of a Deployment ? \n',
+    'question': 'How to check Rollout History of a Deployment ? \n\n',
     'answer': 'k rollout history deployment/name',
     'obs': ' \n',
     'link': 'https://kubernetes.io/docs/concepts/workloads/controllers/deployment/ ',
     },
     {
-    'question': 'How to see the details of each revision? \n',
+    'question': 'How to see the details of each revision? \n\n',
     'answer': 'k rollout history deployment/name --revision=2',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to rollback to a Previous Revision ? \n',
+    'question': 'How to rollback to a Previous Revision ? \n\n',
     'answer': ' k rollout undo deployment/name',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to rollback to a specific revision? \n',
+    'question': 'How to rollback to a specific revision? \n\n',
     'answer': 'k rollback undo deployment/name --revision=2',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to scale a deployment? \n',
+    'question': 'How to scale a deployment? \n\n',
     'answer': 'k scale deployment name --replicas=2',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to set horizontal pod autoscaling to a deployment? \n',
+    'question': 'How to set horizontal pod autoscaling to a deployment? \n\n',
     'answer': 'k autoscale deployment name --min=2 --max=3 --cpu-percent=80',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'Understand Jobs and CronJobs \n\n\n to create a cron job using kubectl run ?\n',
+    'question': 'Understand Jobs and CronJobs \n\n\n to create a cron job using kubectl run ? \n\n',
     'answer': 'k run name --schedule="*/1 * * * *" --restart=OnFailure --image=busybox -- /bin/sh -c "date; echo k8s"',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'After creating the cron job, how to get the job status? \n',
+    'question': 'After creating the cron job, how to get the job status? \n\n',
     'answer': 'k get cronjob name',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'how to Watch for the job to be created in around one minute? \n',
+    'question': 'how to Watch for the job to be created in around one minute? \n\n',
     'answer': 'k get jobs --watch',
     'obs': ' \n',
     'link': ' ',
     },
     {
-    'question': 'How to delete a cronjob? \n',
+    'question': 'How to delete a cronjob? \n\n',
     'answer': 'k delete cronjob name',
     'obs': ' \n',
     'link': ' ',
@@ -283,10 +283,40 @@ pod_design = [{
 ]
 
 config = [{      
-    'question': 'Configuration - 18%\n\n\n bla bla bla ?',
-    'answer': 'bla',
+    'question': 'Configuration - 18%\n\n\n How to get a configmap named teste ? \n\n',
+    'answer': 'k get configmap teste ',
     'obs': '',
     'link': '',
+    },  
+    {
+    'question': 'How to get a configmap named teste and export to yaml file ? \n\n',
+    'answer': 'k get configmap teste -o yaml > file.yml',
+    'obs': ' \n',
+    'link': ' ',
+    },  
+    {
+    'question': ' How to create a configmap from a file? \n\n',
+    'answer': 'k create configmap teste --from-file=file.txt  ',
+    'obs': ' \n',
+    'link': ' ',
+    },  
+    {
+    'question': 'How to create a configmap named teste from a file with variables ? \n\n',
+    'answer': 'k create configmap teste --from-env-file=variables.txt ',
+    'obs': ' \n',
+    'link': ' ',
+    },  
+    {
+    'question': 'How to Define the key to use when creating a ConfigMap from a file ? \n\n',
+    'answer': 'k create configmap teste --from-file=foo=file.txt ',
+    'obs': ' \n',
+    'link': ' ',
+    },  
+    {
+    'question': 'How to create a configmap teste from literal ? \n\n',
+    'answer': 'k create configmap teste --from-literal=foo=bar ',
+    'obs': ' \n',
+    'link': ' ',
     },  
 ]
 
@@ -296,6 +326,30 @@ observability = [{
     'obs': '',
     'link': '',
     },  
+    {
+    'question': ' ? \n\n',
+    'answer': ' ',
+    'obs': ' \n',
+    'link': ' ',
+    },  
+    {
+    'question': ' ? \n\n',
+    'answer': ' ',
+    'obs': ' \n',
+    'link': ' ',
+    },  
+    {
+    'question': ' ? \n\n',
+    'answer': ' ',
+    'obs': ' \n',
+    'link': ' ',
+    },  
+    {
+    'question': ' ? \n\n',
+    'answer': ' ',
+    'obs': ' \n',
+    'link': ' ',
+    },  
 ]
 
 networking = [{      
@@ -303,6 +357,30 @@ networking = [{
     'answer': 'bla',
     'obs': '',
     'link': '',
+    },  
+    {
+    'question': ' ? \n\n',
+    'answer': ' ',
+    'obs': ' \n',
+    'link': ' ',
+    },  
+    {
+    'question': ' ? \n\n',
+    'answer': ' ',
+    'obs': ' \n',
+    'link': ' ',
+    },  
+    {
+    'question': ' ? \n\n',
+    'answer': ' ',
+    'obs': ' \n',
+    'link': ' ',
+    },  
+    {
+    'question': ' ? \n\n',
+    'answer': ' ',
+    'obs': ' \n',
+    'link': ' ',
     },  
 ]
 
@@ -370,19 +448,19 @@ def exec_choose(question):
     for q in questions:
         if input(q['question']) == q['answer']:
             cq += 1
-            print("correct \n")
+            print("correct \n\n")
             print(q['obs'])
             print("\n")
             print(q['link'])
-            input('go to next? press <enter>\n')
+            input('go to next? press <enter>\n\n')
             clear_terminal ()
         else:
-            print("incorrect \n")
+            print("incorrect \n\n")
             print("The correct is: {}" .format(q['answer']))
             print(q['obs'])
             print("\n")
             print(q['link'])
-            input('go to next? press <enter>\n')
+            input('go to next? press <enter>\n\n')
             clear_terminal ()
 
     media = (cq / len(questions) * 100)
